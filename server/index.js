@@ -6,10 +6,11 @@ const port = 3000
 
 app.use(express.static('public'))
 
-
+const root = require('path').join(__dirname,'../client/dist')
+app.use(express.static(root))
 
 app.get('/', (req, res)=>{
-    res.send('Server is runining well')
+    res.sendFile('index.html', {root})
     
     })
 app.get('/message', (req, res)=>{
